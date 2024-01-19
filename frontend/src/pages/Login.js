@@ -30,12 +30,11 @@ const Login = () => {
     e.preventDefault();
     if (!password || !email) {
       toast.error("Please fill all fields", {
-        // Set the position
-        autoClose: 2000, // Set the autoClose time in milliseconds
-        hideProgressBar: true, // Set to true to hide the progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause the autoClose timer when hovering
-        draggable: true, // Allow the toast to be dragged
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
 
       return;
@@ -48,33 +47,28 @@ const Login = () => {
 
     const config = { headers: { "Content-type": "application/json" } };
     try {
-      //setLoading(true);
       const response = await axios.post(
         "https://itoju-production.up.railway.app/api/v1//auth/login/",
         data,
         config
       );
       const user = response.data;
-      console.log(response.data);
-      if (response.status == "Error") {
-        //setLoading(false);
-        toast.error("Invalid login credentials", {
-          // Set the position
-          autoClose: 2000, // Set the autoClose time in milliseconds
-          hideProgressBar: true, // Set to true to hide the progress bar
-          closeOnClick: true, // Close the toast when clicked
-          pauseOnHover: true, // Pause the autoClose timer when hovering
-          draggable: true, // Allow the toast to be dragged
-        });
+      console.log(response);
 
-        return;
-      } else {
-        setCookie("Token", user.token);
+      setCookie("Token", user.token);
 
-        navigate("/dashboard");
-      }
+      navigate("/dashboard");
     } catch (error) {
-      console.log(error);
+      if (error.response.data.status == "Error") {
+        console.log("there is an error");
+        toast.error(error.response.data.message, {
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
     }
   };
 
