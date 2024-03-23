@@ -10,12 +10,15 @@ import {
   Typography,
   TablePagination,
 } from "@mui/material";
+
 import axios from "axios";
 
 const Recent_orders = () => {
   const [details, setDetails] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  //const details = [];
 
   const recentOrders = async () => {
     const config = { headers: { "Content-type": "application/json" } };
@@ -25,17 +28,19 @@ const Recent_orders = () => {
         "https://itoju-production.up.railway.app/api/v1//dashboard/",
         config
       );
+      //console.log(response.data.data);
 
       for (let i = 0; i < response.data.data.length; i++) {
         if (!response.data.data[i].totalEarnings) {
           setDetails(response.data.data[i]);
         }
       }
-      console.log(details);
     } catch (error) {
       console.log(error);
     }
   };
+
+  console.log(details);
 
   useEffect(() => {
     recentOrders();
@@ -67,36 +72,22 @@ const Recent_orders = () => {
   };
 
   const rows = [
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
-    createData("#1234", "21-03-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
+    createData("#1234", "22-01-24", "$20", "Favour Urihofe", "Walk-in", "Cash"),
   ];
-
-  // for (let i = 0; i < details.length; i++) {
-  //   let rows = [
-  //     createData(
-  //       details[i].order_id,
-  //       details[i].date,
-  //       details[i].gross,
-  //       details[i].customer,
-  //       details[i].type,
-  //       details[i].payment_type
-  //     ),
-  //   ];
-  //   console.log(details[i].order_id);
-  // }
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

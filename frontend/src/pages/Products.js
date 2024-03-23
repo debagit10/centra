@@ -9,6 +9,7 @@ import NoBackpackOutlinedIcon from "@mui/icons-material/NoBackpackOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FilterListOutlinedIcon from "@mui/icons-material/FilterListOutlined";
+import AddIcon from "@mui/icons-material/Add";
 
 const Products = ({ children }) => {
   return (
@@ -42,7 +43,10 @@ const Products = ({ children }) => {
               }}
               // onClick={submit}
             >
-              + Add Product
+              <i className="p-2">
+                <AddIcon></AddIcon>
+              </i>{" "}
+              Add Product
             </button>
           </div>
         </div>

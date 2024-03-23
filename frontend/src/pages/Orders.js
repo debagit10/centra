@@ -9,6 +9,7 @@ import NoBackpackOutlinedIcon from "@mui/icons-material/NoBackpackOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FilterListOutlinedIcon from "@mui/icons-material/FilterListOutlined";
+import AddIcon from "@mui/icons-material/Add";
 
 const Orders = ({ children }) => {
   return (
@@ -111,7 +112,10 @@ const Orders = ({ children }) => {
               }}
               // onClick={submit}
             >
-              + New Order
+              <i className="p-2">
+                <AddIcon />
+              </i>
+              New Order
             </button>
           </div>
         </div>
