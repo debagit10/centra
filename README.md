@@ -21,7 +21,7 @@ Follow the steps below to install and set up the project:
 3. **Create a new branch**: Create a new branch to work on your desired features using the following command: `git checkout -b new-branch-name`. Replace new-branch-name with your desired branch name.
 4. **Install dependencies**: Navigate to the project folder on your terminal and install the dependencies using the following command: `npm install`
 
-# Prerequites
+# Prerequisites
 
 Before getting started, make sure you have the following prerequites:
 
@@ -30,4 +30,4 @@ Before getting started, make sure you have the following prerequites:
 - [npm](https://www.npmjs.com/) (Node package manager) installed
 - A code editor such as [Visual studio code](https://code.visualstudio.com/) or any other preferred code environment
 
-Ensure you have these prerequites installed and set up on your system before proceeding with the project setup
+Ensure you have these prerequisites installed and set up on your system before proceeding with the project setup
